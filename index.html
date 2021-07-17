@@ -21,6 +21,8 @@
       src="https://kit.fontawesome.com/f92bdf6c84.js"
       crossorigin="anonymous"
     ></script>
+    <!--Axios cdn-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -47,8 +49,9 @@
               <h1><i class="fas fa-cloud temp-icon" id="temp-icon"></i></h1>
             </div>
             <div class="col-sm-4">
-              <h1 class="temp-icon" id="temp-number">
-                00<small class="temp-units">
+              <h1 class="temp-icon">
+                <strong id="temp-number">00</strong
+                ><small class="temp-units">
                   <span id="celsius">°C</span> |
                   <span id="farhen">°F</span></small
                 >
@@ -57,9 +60,9 @@
             <!--Temp status-->
             <div class="col-sm-6">
               <ul class="temp-status">
-                <li id="curr-precipitation">Precipitation: 00%</li>
-                <li id="curr-humidity">Humidity: 00%</li>
-                <li id="curr-windn">Wind: 00km/h</li>
+                <li>Precipitation: <span id="curr-precipitation">0</span>mm</li>
+                <li>Humidity: <span id="curr-humidity">00</span>%</li>
+                <li>Wind: <span id="curr-wind">00</span>km/h</li>
               </ul>
             </div>
           </div>

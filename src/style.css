@@ -37,3 +37,7 @@ li {
   border: 1px solid #dadde1;
   border-radius: 12px;
 }
+
+#curr-clouds {
+  text-transform: capitalize;
+}
