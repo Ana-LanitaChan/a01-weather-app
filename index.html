@@ -13,108 +13,66 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!--style.css-->
+    <link rel="stylesheet" href="src/style.css" />
+
     <!--Fontawesome Icons-->
     <script
       src="https://kit.fontawesome.com/f92bdf6c84.js"
       crossorigin="anonymous"
     ></script>
-
-    <!--style.css-->
-    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container ">
-      <div
-        class="
-          card
-          mt-3
-          p-3
-          shadow
-          p-3
-          mb-5
-          bg-body
-          rounded-3
-          bg-light bg-gradient
-          border border-1 border-secondary
-        "
-      >
-        <div class="card-body">
-          <!--Display row-->
+    <div class="container">
+      <!--Additional wrapp to hold all up-->
+      <div class="app-wrapper">
+        <div class="weather-card">
+          <!--Search form-->
           <div class="row">
-            <h1 class="text-secondary" id="ico-main"><i class="fas fa-cloud-sun"></i></h1>
-            <h2><strong> 00°C</strong></h2>
-          </div>
-          <div class="row">
-            <div class="col-7">
-              <h3>Current city</h3>
-            </div>
-            <div class="col-5 text-end">°C | °F</div>
-          </div>
-          <!--Form row-->
-          <div class="row">
-            <form class="input-group mb-3" id="search-form">
-              <input
-                id="button-addon2"
-                class="form-control"
-                type="search"
-                placeholder="Search for a city"
-                aria-describedby="button-addon2"
-              />
-              <input
-                id="city-search"
-                class="btn btn-outline-secondary"
-                type="submit"
-                value="Search"
-              />
+            <form action="" class="search-form">
+              <input type="text" /> <input type="button" value="search" />
             </form>
           </div>
-          <!--Date & Forecast row-->
-          <div class="row align-items-start">
-              <!--Date col-->
-            <div class="col-5">
-                <div
-                class="card text-dark bg-light p-0 h-auto"
-              >
-                <div class="card-body">
-                  <p class="card-text">
-                    <div> <strong>Current DAY 00:00 hrs.</strong></div>
-                    <div>Humidity: 00%</div>
-                    <div>Wind: 00km/h</div>
-                  </p>
-                </div>
-              </div>
+          <!--City display-->
+          <div class="row"><h3 id="curr-city">Current CITY</h3></div>
+          <div class="row">
+            <ul>
+              <li id="curr-date">DATE 00:00 hrs.</li>
+              <li id="curr-clouds">Current Clouds</li>
+            </ul>
+          </div>
+          <!--Temp display-->
+          <div class="row">
+            <div class="col-sm-2">
+              <h1><i class="fas fa-cloud temp-icon" id="temp-icon"></i></h1>
             </div>
-                <!--Forecast col-->
-              <div class="col-7">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    DAY<i class="fas fa-cloud-sun"></i> 00°C
-                  </li>
-                  <li class="list-group-item">
-                    DAY<i class="fas fa-cloud-sun"></i> 00°C
-                  </li>
-                  <li class="list-group-item">
-                    DAY<i class="fas fa-cloud-sun"></i> 00°C
-                  </li>
-                  <li class="list-group-item">
-                    DAY<i class="fas fa-cloud-sun"></i> 00°C
-                  </li>
-                  <li class="list-group-item">
-                    DAY<i class="fas fa-cloud-sun"></i> 00°C
-                  </li>
-                </ul>
-              </div>
+            <div class="col-sm-4">
+              <h1 class="temp-icon" id="temp-number">
+                00<small class="temp-units">
+                  <span id="celsius">°C</span> |
+                  <span id="farhen">°F</span></small
+                >
+              </h1>
+            </div>
+            <!--Temp status-->
+            <div class="col-sm-6">
+              <ul class="temp-status">
+                <li id="curr-precipitation">Precipitation: 00%</li>
+                <li id="curr-humidity">Humidity: 00%</li>
+                <li id="curr-windn">Wind: 00km/h</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <!--Footer-->
-      <p class="text-center font-monospace text-muted">
-        <small
-          ><a href="#" class="text-muted">Open source code</a> by Ana
-          Aguilar.</small
+        <small class="footer"
+          ><a
+            href="https://github.com/Ana-LanitaChan/a01-weather-app"
+            target="_blank"
+            >Open source code</a
+          >
+          by Ana Aguilar.</small
         >
-      </p>
+      </div>
     </div>
     <script src="src/app.js"></script>
   </body>

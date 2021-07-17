@@ -1,0 +1,39 @@
+li {
+  color: #70757a;
+  font-size: 16px;
+  list-style: none;
+}
+.app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.footer {
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.search-form {
+  margin: 9px auto 18px auto;
+}
+.temp-icon {
+  font-size: 63px;
+}
+
+.temp-number strong {
+  font-size: 63px;
+}
+.temp-status {
+  padding-left: 0;
+}
+
+.temp-units {
+  font-size: 18px;
+  position: relative;
+  top: -36px;
+}
+.weather-card {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+}
