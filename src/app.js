@@ -33,12 +33,13 @@ function displayData(response) {
   let dispCurrCity = document.querySelector("#curr-city");
   let dispDate = document.querySelector("#curr-date");
   let dispImg = document.querySelector("#curr-img");
+
+  window.value = Math.round(response.data.main.temp);
   //let dispPrecipitation = document.querySelector("#curr-precipitation");
   dispHumidity.innerHTML = response.data.main.humidity;
   dispWind.innerHTML = Math.round(response.data.wind.speed * 3.6);
-
   dispClouds.innerHTML = response.data.weather[0].description;
-  dispTemp.innerHTML = Math.round(response.data.main.temp);
+  dispTemp.innerHTML = window.value;
   dispCurrCity.innerHTML = response.data.name;
   dispDate.innerHTML = formatDate(response.data.dt * 1000);
   dispImg.setAttribute(
@@ -69,16 +70,26 @@ function apiCallCity(trigger) {
   axios.get(apiCall).then(displayData);
 }
 
-function displayFarhen(selection) {
-  selection.preventDefault();
+function displayFarhen(click) {
+  click.preventDefault();
 
-  let farhenConversion = Math.round((tempCelsius * 9) / 5 + 32);
-  let tempFarhen = document.querySelector("#temp-numb");
+  let farhenConversion = Math.round((window.value * 9) / 5 + 32);
+  let tempFarhen = document.querySelector("#temp-number");
   tempFarhen.innerHTML = farhenConversion;
+}
+
+function displayCelisius(click) {
+  click.preventDefault();
+
+  let tempCelsius = document.querySelector("#temp-number");
+  tempCelsius.innerHTML = window.value;
 }
 
 let farhenLink = document.querySelector("#farhen");
 farhenLink.addEventListener("click", displayFarhen);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelisius);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", apiCallCity);

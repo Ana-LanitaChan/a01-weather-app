@@ -33,14 +33,6 @@ a {
 
 .units-active {
   color: #000;
-  text-decoration: none;
-  cursor: default;
-}
-
-.units-active:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: default;
 }
 
 .weather-card {
