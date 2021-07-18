@@ -31,13 +31,27 @@
         <div class="weather-card">
           <!--Search form-->
           <div class="row">
-            <form action="" class="search-form">
-              <input type="text" /> <input type="button" value="search" />
+            <form id="search-form">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search for a city"
+                  id="input-search"
+                />
+                <input
+                  class="btn btn-primary"
+                  type="submit"
+                  value="Search"
+                  id="submit-search"
+                />
+              </div>
             </form>
           </div>
           <!--City display-->
           <div class="row"><h3 id="curr-city">Search for a city</h3></div>
           <div class="row">
+            <!--Day & clouds-->
             <ul>
               <li>
                 Last update: <span id="curr-date">Current day 00:00</span> hrs.
@@ -55,7 +69,7 @@
                 alt="..."
               />
             </div>
-            <!--Temp number-->
+            <!--Temp number & units-->
             <div class="col-sm-4">
               <h1 class="temp-icon">
                 <strong id="temp-number">00</strong

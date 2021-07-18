@@ -50,9 +50,24 @@ function displayData(response) {
   console.log(response.data);
 }
 
-let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
-let city = "mexico";
-let units = "metric";
-let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+/*function searchCity(trigger) {
+  
+  
+}*/
 
-axios.get(apiCall).then(displayData);
+function apiCallingCity(trigger) {
+  trigger.preventDefault();
+  let cityInput = document.querySelector("#input-search");
+  let city = cityInput.value;
+  city.trim();
+
+  let units = "metric";
+
+  let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
+  let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiCall).then(displayData);
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", apiCallingCity);

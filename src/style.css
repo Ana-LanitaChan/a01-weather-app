@@ -13,10 +13,6 @@ li {
   font-family: monospace;
 }
 
-.search-form {
-  margin: 9px auto 18px auto;
-}
-
 .temp-icon {
   font-size: 63px;
 }
@@ -46,4 +42,16 @@ li {
 #curr-img {
   width: 80px;
   height: 80px;
+}
+
+#input-search {
+  display: inline;
+}
+
+#search-form {
+  margin: 9px auto 18px auto;
+}
+
+#submit-search {
+  display: inline;
 }
