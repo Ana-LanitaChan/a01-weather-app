@@ -3,6 +3,10 @@ li {
   font-size: 16px;
   list-style: none;
 }
+
+a {
+  text-decoration: none;
+}
 .app-wrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -17,9 +21,6 @@ li {
   font-size: 63px;
 }
 
-.temp-number strong {
-  font-size: 63px;
-}
 .temp-status {
   padding-left: 0;
 }
@@ -29,6 +30,19 @@ li {
   position: relative;
   top: -36px;
 }
+
+.units-active {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+}
+
+.units-active:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+}
+
 .weather-card {
   padding: 20px;
   border: 1px solid #dadde1;

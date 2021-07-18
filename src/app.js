@@ -55,7 +55,7 @@ function displayData(response) {
   
 }*/
 
-function apiCallingCity(trigger) {
+function apiCallCity(trigger) {
   trigger.preventDefault();
   let cityInput = document.querySelector("#input-search");
   let city = cityInput.value;
@@ -69,5 +69,16 @@ function apiCallingCity(trigger) {
   axios.get(apiCall).then(displayData);
 }
 
+function displayFarhen(selection) {
+  selection.preventDefault();
+
+  let farhenConversion = Math.round((tempCelsius * 9) / 5 + 32);
+  let tempFarhen = document.querySelector("#temp-numb");
+  tempFarhen.innerHTML = farhenConversion;
+}
+
+let farhenLink = document.querySelector("#farhen");
+farhenLink.addEventListener("click", displayFarhen);
+
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", apiCallingCity);
+searchForm.addEventListener("submit", apiCallCity);

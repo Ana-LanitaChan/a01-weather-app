@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
     <!--style.css-->
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
 
     <!--Fontawesome Icons-->
     <script
@@ -70,17 +70,17 @@
               />
             </div>
             <!--Temp number & units-->
-            <div class="col-sm-4">
+            <div class="col-sm-5">
               <h1 class="temp-icon">
-                <strong id="temp-number">00</strong
+                <strong id="temp-number">(´꒳`)</strong
                 ><small class="temp-units">
-                  <span id="celsius">°C</span> |
-                  <span id="farhen">°F</span></small
+                  <a id="celsius" class="units-active" href="#">°C</a>
+                  | <a id="farhen" href="#">°F</a></small
                 >
               </h1>
             </div>
             <!--Temp status-->
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <ul class="temp-status">
                 <li>Precipitation: <span id="curr-precipitation">0</span>mm</li>
                 <li>Humidity: <span id="curr-humidity">00</span>%</li>
