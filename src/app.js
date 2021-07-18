@@ -1,21 +1,43 @@
 //alert("Test app.js");
 
+function formatDate(timedt) {
+  //calculate date
+  let currDate = new Date(timedt);
+  let weekDay = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let currDay = weekDay[currDate.getDay()];
+  let currHour = currDate.getHours();
+  let currMinutes = currDate.getMinutes();
+
+  return `${currDay} ${currHour}:${currMinutes} hrs.`;
+}
+
+//This function is for selecting from HTML and displaying a response
 function displayData(response) {
   //Arrange all the 'lets' first
   let dispHumidity = document.querySelector("#curr-humidity");
   let dispWind = document.querySelector("#curr-wind");
-  let dispPrecipitation = document.querySelector("#curr-precipitation");
   let dispClouds = document.querySelector("#curr-clouds");
   let dispTemp = document.querySelector("#temp-number");
   let dispCurrCity = document.querySelector("#curr-city");
-
+  let dispDate = document.querySelector("#curr-date");
+  let dispPrecipitation = document.querySelector("#curr-precipitation");
   dispHumidity.innerHTML = response.data.main.humidity;
   dispWind.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  dispPrecipitation.innerHTML = response.data.rain["1h"];
+
   dispClouds.innerHTML = response.data.weather[0].description;
   dispTemp.innerHTML = Math.round(response.data.main.temp);
   dispCurrCity.innerHTML = response.data.name;
-
+  dispDate.innerHTML = formatDate(response.data.dt * 1000);
+  //dispPrecipitation.innerHTML = response.data.rain["1h"];
   console.log(response.data);
 }
 
