@@ -16,6 +16,9 @@ function formatDate(timedt) {
   let currDay = weekDay[currDate.getDay()];
   let currHour = currDate.getHours();
   let currMinutes = currDate.getMinutes();
+  if (currMinutes < 10) {
+    currMinutes = `0${currMinutes}`;
+  }
 
   return `${currDay} ${currHour}:${currMinutes} hrs.`;
 }
