@@ -16,6 +16,7 @@ li {
 .search-form {
   margin: 9px auto 18px auto;
 }
+
 .temp-icon {
   font-size: 63px;
 }
@@ -40,4 +41,9 @@ li {
 
 #curr-clouds {
   text-transform: capitalize;
+}
+
+#curr-img {
+  width: 80px;
+  height: 80px;
 }

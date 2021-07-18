@@ -23,7 +23,7 @@ function formatDate(timedt) {
   return `${currDay} ${currHour}:${currMinutes} hrs.`;
 }
 
-//This function is for selecting from HTML and displaying a response
+//This function is for selecting from HTML and displaying a response.
 function displayData(response) {
   //Arrange all the 'lets' first
   let dispHumidity = document.querySelector("#curr-humidity");
@@ -32,7 +32,8 @@ function displayData(response) {
   let dispTemp = document.querySelector("#temp-number");
   let dispCurrCity = document.querySelector("#curr-city");
   let dispDate = document.querySelector("#curr-date");
-  let dispPrecipitation = document.querySelector("#curr-precipitation");
+  let dispImg = document.querySelector("#curr-img");
+  //let dispPrecipitation = document.querySelector("#curr-precipitation");
   dispHumidity.innerHTML = response.data.main.humidity;
   dispWind.innerHTML = Math.round(response.data.wind.speed * 3.6);
 
@@ -40,6 +41,11 @@ function displayData(response) {
   dispTemp.innerHTML = Math.round(response.data.main.temp);
   dispCurrCity.innerHTML = response.data.name;
   dispDate.innerHTML = formatDate(response.data.dt * 1000);
+  dispImg.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  dispImg.setAttribute("alt", `${response.data.weather[0].description}`);
   //dispPrecipitation.innerHTML = response.data.rain["1h"];
   console.log(response.data);
 }
