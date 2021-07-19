@@ -33,10 +33,9 @@ function displayData(response) {
   let dispCurrCity = document.querySelector("#curr-city");
   let dispDate = document.querySelector("#curr-date");
   let dispImg = document.querySelector("#curr-img");
-
+  //let dispPrecipitation = document.querySelector("#curr-precipitation");
   window.value = Math.round(response.data.main.temp);
 
-  //let dispPrecipitation = document.querySelector("#curr-precipitation");
   dispHumidity.innerHTML = response.data.main.humidity;
   dispWind.innerHTML = Math.round(response.data.wind.speed * 3.6);
   dispClouds.innerHTML = response.data.weather[0].description;
@@ -108,5 +107,3 @@ farhenLink.addEventListener("click", displayFarhen);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelisius);
-
-console.log(window.value);
