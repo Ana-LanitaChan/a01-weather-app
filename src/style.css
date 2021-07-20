@@ -17,6 +17,33 @@ a {
   font-family: monospace;
 }
 
+.fore-day {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fore-temp {
+  font-size: 11px;
+}
+
+.forecast-wrapper,
+p {
+  color: #70757a;
+  text-align: center;
+}
+
+.max {
+  font-weight: bold;
+  color: #000;
+}
+
+.row.fore-ico,
+img {
+  text-align: center;
+  width: 54px;
+  height: 54px;
+}
+
 .temp-icon {
   font-size: 63px;
 }
