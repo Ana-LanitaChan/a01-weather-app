@@ -23,6 +23,34 @@ function formatDate(timedt) {
   return `${currDay} ${currHour}:${currMinutes} hrs.`;
 }
 
+function displayForecast() {
+  let displayWhole = document.querySelector("#concatenated-forecast");
+
+  let foreColumnHTML = "";
+  let foreDays = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
+  /*Function inside a function inside a @___@*/
+  foreDays.forEach(function (day) {
+    foreColumnHTML =
+      foreColumnHTML +
+      `<div class="col-2">
+    <p class="fore-day">${day}</p>
+      <img
+          class="fore-ico"
+          src="https://openweathermap.org/img/wn/02n@2x.png"
+          alt="..."
+        />
+    <p class="fore-temp"> <span class="max">00°</span> | <span>00°</span></p>
+   </div>
+  
+  `;
+  });
+
+  displayWhole.innerHTML = foreColumnHTML;
+}
+
+displayForecast();
+
 //This function is for selecting from HTML and displaying a response.
 function displayData(response) {
   //Arrange all the 'lets' first
