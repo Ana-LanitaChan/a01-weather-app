@@ -23,7 +23,9 @@ function formatDate(timedt) {
   return `${currDay} ${currHour}:${currMinutes} hrs.`;
 }
 
-function displayForecast() {
+function displayForecast(response02) {
+  console.log(response02);
+
   let displayWhole = document.querySelector("#concatenated-forecast");
 
   let foreColumnHTML = "";
@@ -51,6 +53,19 @@ function displayForecast() {
 
 displayForecast();
 
+/*This function extract the coords from 'DisplayData',
+because this one receivend the response whith this info.*/
+
+function apiCallForecast(coord) {
+  let units = "metric";
+  let lat = coord.lat;
+  let lon = coord.lon;
+  let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
+  let apiCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiCall).then(displayForecast);
+}
+
 //This function is for selecting from HTML and displaying a response.
 function displayData(response) {
   //Arrange all the 'lets' first
@@ -76,13 +91,12 @@ function displayData(response) {
   );
   dispImg.setAttribute("alt", `${response.data.weather[0].description}`);
   //dispPrecipitation.innerHTML = response.data.rain["1h"];
-  console.log(response.data);
-}
 
-/*function searchCity(trigger) {
-  
-  
-}*/
+  console.log(response.data);
+
+  //Call the coordenates for daily forecast FROM HERE:
+  apiCallForecast(response.data.coord);
+}
 
 function apiCallCity(trigger) {
   trigger.preventDefault();
@@ -91,7 +105,6 @@ function apiCallCity(trigger) {
   city.trim();
 
   let units = "metric";
-
   let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
   let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
 
