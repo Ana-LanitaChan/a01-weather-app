@@ -112,17 +112,20 @@ function displayData(response) {
   apiCallForecast(response.data.coord);
 }
 
-function apiCallCity(trigger) {
-  trigger.preventDefault();
-  let cityInput = document.querySelector("#input-search");
-  let city = cityInput.value;
-  city.trim();
-
+function apiCallCity(city) {
   let units = "metric";
   let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
   let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
 
   axios.get(apiCall).then(displayData);
+}
+
+function defaultInput(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#input-search");
+  let city = cityInput.value;
+  city.trim();
+  apiCallCity(city);
 }
 
 function displayFarhen(click) {
@@ -154,17 +157,6 @@ function displayCelisius(click) {
   offFarhen.classList.remove("units-active");
 }
 
-function myPosition(position) {
-  let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
-  let units = "metric";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-
-  let apiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-
-  axios.get(apiCall).then(displayData);
-}
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", apiCallCity);
 
@@ -174,4 +166,4 @@ farhenLink.addEventListener("click", displayFarhen);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelisius);
 
-navigator.geolocation.getCurrentPosition(myPosition);
+apiCallCity("Tlalnepantla");
