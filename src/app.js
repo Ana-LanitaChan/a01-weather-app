@@ -23,38 +23,52 @@ function formatDate(timedt) {
   return `${currDay} ${currHour}:${currMinutes} hrs.`;
 }
 
-function displayForecast(response02) {
-  console.log(response02);
+function formatDay(daydt) {
+  let date = new Date(daydt * 1000);
+  eachDay = date.getDay();
+  let forecastWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  //let eachDay = foreDays[currDate.getDay()];
 
+  return forecastWeek[eachDay];
+}
+
+function displayForecast(response02) {
+  let forecast = response02.data.daily;
   let displayWhole = document.querySelector("#concatenated-forecast");
 
   let foreColumnHTML = "";
-  let foreDays = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-
-  /*Function inside a function inside a @___@*/
-  foreDays.forEach(function (day) {
-    foreColumnHTML =
-      foreColumnHTML +
-      `<div class="col-2">
-    <p class="fore-day">${day}</p>
+  /*Function inside a function inside aaah @___@*/
+  forecast.forEach(function (daily, index) {
+    if (index < 5) {
+      foreColumnHTML =
+        foreColumnHTML +
+        `<div class="col-2">
+    <p class="fore-day">${formatDay(daily.dt)}</p>
       <img
           class="fore-ico"
-          src="https://openweathermap.org/img/wn/02n@2x.png"
+          src="https://openweathermap.org/img/wn/${
+            daily.weather[0].icon
+          }@2x.png"
           alt="..."
         />
-    <p class="fore-temp"> <span class="max">00°</span> | <span>00°</span></p>
+    <p class="fore-temp"> <span class="max">${Math.round(
+      daily.temp.max
+    )}°</span> | <span>${Math.round(daily.temp.min)}°</span></p>
    </div>
   
   `;
+    }
   });
 
   displayWhole.innerHTML = foreColumnHTML;
+
+  console.log(forecast);
 }
 
-displayForecast();
+//displayForecast();
 
 /*This function extract the coords from 'DisplayData',
-because this one receivend the response whith this info.*/
+because this one received the response whith this info.*/
 
 function apiCallForecast(coord) {
   let units = "metric";
@@ -92,7 +106,7 @@ function displayData(response) {
   dispImg.setAttribute("alt", `${response.data.weather[0].description}`);
   //dispPrecipitation.innerHTML = response.data.rain["1h"];
 
-  console.log(response.data);
+  //console.log(response.data);
 
   //Call the coordenates for daily forecast FROM HERE:
   apiCallForecast(response.data.coord);
@@ -140,6 +154,17 @@ function displayCelisius(click) {
   offFarhen.classList.remove("units-active");
 }
 
+function myPosition(position) {
+  let apiKey = "492c6e2ddde5d9a8edcbcb2a6951f7b7";
+  let units = "metric";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+
+  let apiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiCall).then(displayData);
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", apiCallCity);
 
@@ -148,3 +173,5 @@ farhenLink.addEventListener("click", displayFarhen);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelisius);
+
+navigator.geolocation.getCurrentPosition(myPosition);
