@@ -27,7 +27,6 @@ function formatDay(daydt) {
   let date = new Date(daydt * 1000);
   eachDay = date.getDay();
   let forecastWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  //let eachDay = foreDays[currDate.getDay()];
 
   return forecastWeek[eachDay];
 }
@@ -65,8 +64,6 @@ function displayForecast(response02) {
   console.log(forecast);
 }
 
-//displayForecast();
-
 /*This function extract the coords from 'DisplayData',
 because this one received the response whith this info.*/
 
@@ -90,7 +87,6 @@ function displayData(response) {
   let dispCurrCity = document.querySelector("#curr-city");
   let dispDate = document.querySelector("#curr-date");
   let dispImg = document.querySelector("#curr-img");
-  //let dispPrecipitation = document.querySelector("#curr-precipitation");
   window.value = Math.round(response.data.main.temp);
 
   dispHumidity.innerHTML = response.data.main.humidity;
@@ -104,9 +100,6 @@ function displayData(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   dispImg.setAttribute("alt", `${response.data.weather[0].description}`);
-  //dispPrecipitation.innerHTML = response.data.rain["1h"];
-
-  //console.log(response.data);
 
   //Call the coordenates for daily forecast FROM HERE:
   apiCallForecast(response.data.coord);
@@ -166,4 +159,5 @@ farhenLink.addEventListener("click", displayFarhen);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelisius);
 
+//Default input:
 apiCallCity("Tlalnepantla");
