@@ -1,18 +1,39 @@
+body {
+  background-color: #fcd8d4;
+}
+
+h3 {
+  color: grey;
+}
+
+hr {
+  background-color: #f5c6aa;
+  border: none;
+  height: 1px;
+}
+
 li {
-  color: #70757a;
+  color: #ffaaa7;
   font-size: 16px;
   list-style: none;
 }
 
 a {
+  color: #ec6f4d;
   text-decoration: none;
 }
+
+a:hover {
+  color: #fff;
+}
+
 .app-wrapper {
   max-width: 600px;
   margin: 30px auto;
 }
 
 .footer {
+  color: #fff;
   font-size: 11px;
   font-family: monospace;
 }
@@ -28,13 +49,13 @@ a {
 
 .forecast-wrapper,
 p {
-  color: #70757a;
+  color: #f5c6aa;
   text-align: center;
 }
 
 .max {
   font-weight: bold;
-  color: #000;
+  color: #ffaaa7;
 }
 
 .row.fore-ico,
@@ -53,15 +74,18 @@ img {
 }
 
 .temp-units {
+  color: grey;
   font-size: 18px;
   position: relative;
   top: -36px;
 }
 
 .weather-card {
+  background-color: #fdf6f0;
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 1px solid #f8e2cf;
   border-radius: 12px;
+  box-shadow: 0px 27px 81px #fe9898;
 }
 
 #curr-clouds {
@@ -74,7 +98,12 @@ img {
 }
 
 #input-search {
+  border-color: #f5c6aa;
   display: inline;
+}
+
+#temp-number {
+  color: grey;
 }
 
 #search-form {
@@ -82,5 +111,13 @@ img {
 }
 
 #submit-search {
+  border-color: #ffaaa7;
+  background-color: #ffaaa7;
+  display: inline;
+}
+
+#submit-search:hover {
+  border-color: #ffaaa7;
+  background-color: #ec6f4d;
   display: inline;
 }
