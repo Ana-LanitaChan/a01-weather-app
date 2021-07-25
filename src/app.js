@@ -87,12 +87,12 @@ function displayData(response) {
   let dispCurrCity = document.querySelector("#curr-city");
   let dispDate = document.querySelector("#curr-date");
   let dispImg = document.querySelector("#curr-img");
-  window.value = Math.round(response.data.main.temp);
+  let dispCurrTemp = Math.round(response.data.main.temp);
 
   dispHumidity.innerHTML = response.data.main.humidity;
   dispWind.innerHTML = Math.round(response.data.wind.speed * 3.6);
   dispClouds.innerHTML = response.data.weather[0].description;
-  dispTemp.innerHTML = window.value;
+  dispTemp.innerHTML = dispCurrTemp;
   dispCurrCity.innerHTML = response.data.name;
   dispDate.innerHTML = formatDate(response.data.dt * 1000);
   dispImg.setAttribute(
@@ -121,43 +121,8 @@ function defaultInput(event) {
   apiCallCity(city);
 }
 
-function displayFarhen(click) {
-  click.preventDefault();
-  let farhenConversion = Math.round((window.value * 9) / 5 + 32);
-  let tempFarhen = document.querySelector("#temp-number");
-  tempFarhen.innerHTML = farhenConversion;
-  //swap class
-  let activeFarhen = document.querySelector("#farhen");
-  activeFarhen.classList.add("units-active");
-
-  let offCelsius = document.querySelector("#celsius");
-  offCelsius.classList.remove("units-active");
-}
-
-function displayCelisius(click) {
-  click.preventDefault();
-
-  if (window.value == undefined) {
-    window.value = "(´꒳`)";
-  }
-  let tempCelsius = document.querySelector("#temp-number");
-  tempCelsius.innerHTML = window.value;
-  //swap class
-  let activeCelsius = document.querySelector("#celsius");
-  activeCelsius.classList.add("units-active");
-
-  let offFarhen = document.querySelector("#farhen");
-  offFarhen.classList.remove("units-active");
-}
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", apiCallCity);
-
-let farhenLink = document.querySelector("#farhen");
-farhenLink.addEventListener("click", displayFarhen);
-
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelisius);
 
 //Default input:
 apiCallCity("Tlalnepantla");

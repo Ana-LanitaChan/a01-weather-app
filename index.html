@@ -21,7 +21,7 @@
       src="https://kit.fontawesome.com/f92bdf6c84.js"
       crossorigin="anonymous"
     ></script>-->
-    
+
     <!--Axios cdn-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
@@ -71,17 +71,14 @@
               />
             </div>
             <!--Temp number & units-->
-            <div class="col-sm-5">
+            <div class="col-sm-3">
               <h1 class="temp-icon">
                 <strong id="temp-number">(´꒳`)</strong
-                ><small class="temp-units">
-                  <a id="celsius" class="units-active" href="#">°C</a>
-                  | <a id="farhen" href="#">°F</a></small
-                >
+                ><small class="temp-units"><span id="celsius">°C</span></small>
               </h1>
             </div>
             <!--Temp status-->
-            <div class="col-sm-5">
+            <div class="col-sm-7">
               <ul class="temp-status">
                 <!--<li>Precipitation: <span id="curr-precipitation">0</span>mm</li>-->
                 <li>Humidity: <span id="curr-humidity">00</span>%</li>
@@ -92,8 +89,10 @@
           <!--Forecast-->
           <hr />
           <div class="forecast-wrapper">
-            <div class="row d-flex justify-content-center" id="concatenated-forecast"></div>
-            </div>
+            <div
+              class="row d-flex justify-content-center"
+              id="concatenated-forecast"
+            ></div>
           </div>
         </div>
 

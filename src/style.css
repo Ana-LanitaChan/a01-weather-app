@@ -58,16 +58,6 @@ img {
   top: -36px;
 }
 
-.units-active {
-  color: #000;
-  cursor: default;
-}
-
-.units-active:hover {
-  color: #000;
-  cursor: default;
-}
-
 .weather-card {
   padding: 20px;
   border: 1px solid #dadde1;
