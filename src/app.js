@@ -116,13 +116,11 @@ function apiCallCity(city) {
 function defaultInput(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#input-search");
-  let city = cityInput.value;
-  city.trim();
-  apiCallCity(city);
+  apiCallCity(cityInput.value);
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", apiCallCity);
+searchForm.addEventListener("submit", defaultInput);
 
 //Default input:
 apiCallCity("Tlalnepantla");
